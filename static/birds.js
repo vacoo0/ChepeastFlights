@@ -8,7 +8,7 @@ document.addEventListener('DOMContentLoaded', (event) => {
         mouseControls: true,
         touchControls: true,
         gyroControls: false,
-        minHeight: 400.00,
+        minHeight: 600.00,
         minWidth: 200.00,
         scale: 1.00,
         scaleMobile: 1.00,
@@ -22,3 +22,28 @@ document.addEventListener('DOMContentLoaded', (event) => {
     });
 
 });
+
+function searchIata() {
+    const cityName = document.getElementById('cityNameInput').value;
+    fetch('/search_iata', {
+        method: 'POST',
+        headers: {
+            'Content-Type': 'application/x-www-form-urlencoded',
+        },
+        body: 'city_name=' + encodeURIComponent(cityName)
+    })
+    .then(response => {
+        if (!response.ok) {
+            throw new Error('Network response was not ok');
+        }
+        return response.json();  // This parses the JSON response
+    })
+    .then(data => {
+        // Ensure that you are accessing the 'iata_code' correctly
+        document.getElementById('iataResult').textContent = 'IATA Code: ' + data.iata_code;
+    })
+    .catch(error => {
+        document.getElementById('iataResult').textContent = error.message;
+    });
+}
+

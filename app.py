@@ -1,10 +1,10 @@
-import time
-
 from flask import Flask, render_template, request, session
 from datetime import datetime, timedelta
 from ryanair import Ryanair
-from functions import parse_trip_data, airport_inf, parse_flight_data_one, find_city_id
+from functions import parse_trip_data, airport_inf, parse_flight_data_one, find_city_id, find_iata_code
 import re
+from flask import jsonify
+
 import requests
 
 app = Flask(__name__)
@@ -12,7 +12,14 @@ app.secret_key = 'dupamarynagrengolada'
 @app.route('/')
 def index():
     return render_template('index.html')
-
+@app.route('/search_iata', methods=['POST'])
+def search_iata():
+    city_name = request.form.get('city_name')
+    # Perform the CSV lookup or another logic here to find the IATA code
+    iata_code = find_iata_code(city_name)
+    response = jsonify(iata_code=iata_code)
+    print(response.get_data())  # This will print the response's data in the Flask server console
+    return response
 @app.route('/search_flights', methods=['POST'])
 def search_flights():
     departure = request.form.get('departure')

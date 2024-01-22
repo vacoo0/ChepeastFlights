@@ -11,39 +11,48 @@
 </head>
 </head>
 <body>
-    <div class="container">
-        <!-- Flight Search Block -->
-        <div class="search-block">
-            <h2>Search chepeast flight trip!</h2>
-            <form action="/search_flights" method="post">
-                <input type="text" name="departure" placeholder="Departure Location">
+<div class="container">
+    <!-- Flight Search Block -->
+    <div class="search-block">
+        <p/>For poland type a region like: 'malopolskie'</p>
+        <input type="text" id="cityNameInput" placeholder="Enter City Name"/>
+        <button onclick="searchIata()">Search IATA Code for a city</button>
 
-                <label for="departure-date">Departure Date:</label>
-                <input type="date" id="departure-date" name="departure_date" required>
-
-                <label for="return-date">Return Date:</label>
-                <input type="date" id="return-date" name="return_date" required>
-
-                <label for="departure-flexibility">Departure Flexibility (days):</label>
-                <input type="number" id="departure-flexibility" name="departure_flexibility" min="0" value="0">
-
-                <label for="return-flexibility">Return Flexibility (days):</label>
-                <input type="number" id="return-flexibility" name="return_flexibility" min="0" value="0">
-
-
-                <button type="submit">Search</button>
-            </form>
-        </div>
-
-        <!-- Specific Flight Information Block -->
-        <div class="info-block">
-            <h2>Search chepeast one way ticket!</h2>
-            <form action="/flight_info" method="post">
-                <input type="text" name="departure_one" placeholder="Deprture airport">
-                <button type="submit">Search</button>
-            </form>
-        </div>
+        <div id="iataResult"></div>
     </div>
-    <script src="static/birds.js"></script>
+    <div class="search-block">
+        <h2>Search chepeast flight trip!</h2>
+        <form action="/search_flights" method="post">
+            <input type="text" name="departure" placeholder="Departure Location">
+
+            <label for="departure-date">Departure Date:</label>
+            <input type="date" id="departure-date" name="departure_date" required>
+
+            <label for="return-date">Return Date:</label>
+            <input type="date" id="return-date" name="return_date" required>
+
+            <label for="departure-flexibility">Departure Flexibility (days):</label>
+            <input type="number" id="departure-flexibility" name="departure_flexibility" min="0" value="0">
+
+            <label for="return-flexibility">Return Flexibility (days):</label>
+            <input type="number" id="return-flexibility" name="return_flexibility" min="0" value="0">
+
+
+            <button type="submit">Search</button>
+        </form>
+    </div>
+
+    <!-- Specific Flight Information Block -->
+    <div class="info-block">
+        <h2>Search chepeast one way ticket!</h2>
+        <form action="/flight_info" method="post">
+            <input type="text" name="departure_one" placeholder="Deprture airport">
+            <button type="submit">Search</button>
+        </form>
+    </div>
+</div>
+<script src="static/birds.js"></script>
+
+
 </body>
 </html>

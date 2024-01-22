@@ -46,6 +46,18 @@ def parse_trip_data(trip_str):
         return {"error": "Unable to parse trip data"}
 
 
+
+import csv
+
+def find_iata_code(city_name):
+    iata_code = None
+    with open('iata-icao.csv', 'r') as csvfile:
+        reader = csv.DictReader(csvfile)
+        for row in reader:
+            if row['region_name'].lower() == city_name.lower():
+                iata_code = row['iata']
+                break
+    return iata_code
 def parse_flight_data_one(flight_data_str):
     # Define a regular expression pattern to extract flight details
     pattern = r"departureTime=datetime\.datetime\((\d{4}), (\d{1,2}), (\d{1,2}), (\d{1,2}), (\d{1,2})\), flightNumber='(.*?)', price=(.*?), currency='(.*?)', origin='(.*?)', originFull='(.*?)', destination='(.*?)', destinationFull='(.*?)'"
