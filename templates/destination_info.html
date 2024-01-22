@@ -1,0 +1,46 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Title</title>
+    <link rel="stylesheet" href="static/style.css">
+    <link rel="stylesheet" href="https://unpkg.com/leaflet@1.7.1/dist/leaflet.css" />
+    <script src="https://unpkg.com/leaflet@1.7.1/dist/leaflet.js"></script>
+</head>
+<body>
+<div class="container">
+
+                    <div class="airport-info">
+                        <h2>Airport Information:</h2>
+
+                        <h3>Destination Airport</h3>
+                        <p>{{ airport_data }}</p>
+                        <div id="airport-map" style="height: 400px;"></div>
+                         <div class="airport-photos">
+                            {% for photo in photos %}
+                                <a href="{{ photo.link }}" target="_blank">
+                                    <img src="{{ photo.src }}" alt="Airport Photo" title="{{ photo.copyright }} - {{ photo.source }}">
+                                </a>
+                            {% endfor %}
+                        </div>
+                        </div>
+
+
+                    </div>
+
+    </div>
+<script>
+    var map = L.map('airport-map').setView([{{ latlong[0]}}, {{ latlong[1] }}], 13);
+    L.tileLayer('https://{s}.tile.openstreetmap.org/{z}/{x}/{y}.png', {
+        maxZoom: 19,
+        attribution: '© OpenStreetMap contributors'
+    }).addTo(map);
+
+    // Marker for the airport location
+    var marker = L.marker([{{ latitude }}, {{ longitude }}]).addTo(map);
+    marker.bindPopup("<b>Airport Location</b><br>{{ airport }}").openPopup();
+</script>
+
+</body>
+</html>
