@@ -3,9 +3,9 @@
 **Authors:** Michał Spinczyk, Piotr Pustelnik, Jan Mrożek
 
 This project is a web application built using the Flask framework in Python, designed to provide a comprehensive service for finding and displaying flight information, specifically utilizing the Ryanair API. The core functionality of the app includes searching for IATA codes, finding the cheapest flights, and gathering detailed information about airports, flights, and destinations. Below is a detailed description of the various components and features of this project:
-### Flask Web Framework:
+* Flask Web Framework:
 The application is built using Flask, a lightweight and flexible Python web framework. Flask is used for handling HTTP requests, rendering templates, and managing sessions.
-### Flight Information Retrieval:
+* Flight Information Retrieval:
 The app integrates with the Ryanair API to fetch flight data. This includes finding the cheapest return and one-way flights, as well as providing flexibility in terms of departure and return dates.
 ### Airport and Flight Data Processing:
 The application includes several custom functions like parse_trip_data, airport_inf, parse_flight_data_one, find_city_id, and find_iata_code for processing and extracting useful information from the data obtained from the API and other sources.
