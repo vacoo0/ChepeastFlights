@@ -22,7 +22,7 @@ def parse_trip_data(trip_str):
         return {
             "totalPrice": float(match.group(1)),
             "outbound": {
-                "departureTime": parse_datetime(match.group(2)),
+                "departureTime": str(parse_datetime(match.group(2))),
                 "flightNumber": match.group(3),
                 "price": float(match.group(4)),
                 "currency": match.group(5),
@@ -32,7 +32,7 @@ def parse_trip_data(trip_str):
                 "destinationFull": match.group(9)
             },
             "inbound": {
-                "departureTime": parse_datetime(match.group(10)),
+                "departureTime": str(parse_datetime(match.group(10))),
                 "flightNumber": match.group(11),
                 "price": float(match.group(12)),
                 "currency": match.group(13),

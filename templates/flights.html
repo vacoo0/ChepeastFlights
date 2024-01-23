@@ -102,8 +102,15 @@
                 <p>Timezone: {{ time_zone[2] }}</p>
                 <p>Offset: {{ time_zone[3] }}</p>
             </div>
-            <a href="https://www.ryanair.com/gb/en/trip/flights/select?adults=1&dateOut={{ flights.departureTime.split(" ")[0] }}&isConnectedFlight=false&originIata={{ OR_IATA }}&destinationIata={{ DEST_IATA }}" target="_blank" class="buy-tickets-link">Visit Ryanair to Purchase
-                Tickets</a>
+            {% if flights.totalPrice %}
+                <a href="https://www.ryanair.com/gb/en/trip/flights/select?adults=1&dateOut={{ flights.outbound.departureTime.split(" ")[0] }}&dateIn={{ flights.inbound.departureTime.split(" ")[0] }}&isConnectedFlight=false&originIata={{ OR_IATA }}&destinationIata={{ DEST_IATA }}"
+                   target="_blank" class="buy-tickets-link">Visit Ryanair to Purchase
+                    Tickets</a>
+            {% else %}
+                                <a href="https://www.ryanair.com/gb/en/trip/flights/select?adults=1&dateOut={{ flights.departureTime.split(" ")[0] }}&isConnectedFlight=false&originIata={{ OR_IATA }}&destinationIata={{ DEST_IATA }}"
+                   target="_blank" class="buy-tickets-link">Visit Ryanair to Purchase
+                    Tickets</a>
+            {% endif %}
         </div>
         <!-- Displaying Airport Information -->
         <div class="airport-info">
