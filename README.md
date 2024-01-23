@@ -70,7 +70,7 @@ This project encompassed a full-stack web development process, involving both fr
 ====================================================================
 
 ### How we started:
-- create a nice looking (aircraft style) website on flask where we will use aviation stack api to get information about flights, create two blocks on webpage : 1. where we look flights input(departure place, arrival place) 2. where we et information about flights input(flights number)
+- create a nice looking (aircraft style) website on flask where we will use aviation stack api to get information about flights, create two blocks on webpage : 1. where we put flights input(departure place, arrival place) 2. where we have information about flights input(flights number)
 
 ### All prompts:
 - https://chat.openai.com/share/0aabd2a5-f8ac-48da-89ba-102a893fbf17
