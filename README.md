@@ -25,6 +25,7 @@ The project is structured to separate concerns: routing and logic handling in th
 The application also processes geographical data like latitude and longitude, and time zone information for airports, enhancing the utility of the flight information provided.
 
 In summary, this Flask-based web application serves as a comprehensive tool for users to search for flights, find IATA codes, and access detailed information about airports and destinations, leveraging the Ryanair API and custom Python functions for data processing and presentation.
+
 ====================================================================
 ## Steps:
 ### Initial Setup and Basic Flask Application:
