@@ -63,6 +63,9 @@ def search_flights():
     airport_photos_goal = airport_inf(parsed_trip['outbound']['destination']).images.get('thumbnails', [])  # Extract thumbnails
 
 
+    print(departure)
+    print(parsed_trip['outbound']['destination'])
+
     id_from = find_city_id(parsed_trip['outbound']['originFull'].split(',')[0])
     print(parsed_trip['outbound']['originFull'].split(',')[0])
     print(id_from)
@@ -72,10 +75,12 @@ def search_flights():
     print(id_to)
 
 
+
+
     # Render a template with the flight data or handle it as needed
     return render_template('flights.html', flights=parsed_trip, airport=airport_description, airport_goal=airport_goal_description, latlong=[latitude, longitude],
                            latlong_goal=[latitude_goal, longitude_goal], photos=airport_photos, photos_goal=airport_photos_goal, runways=airport_runways,
-                           runways_goal=airport_goal_runways, reviews_url_goal=reviews_url_goal, reviews_url=reviews_url, id_from=id_from, id_to=id_to, time_zone=time_zone)
+                           runways_goal=airport_goal_runways, reviews_url_goal=reviews_url_goal, reviews_url=reviews_url, id_from=id_from, id_to=id_to, time_zone=time_zone, OR_IATA=departure, DEST_IATA=parsed_trip['outbound']['destination'])
 
 @app.route('/flight_info', methods=['POST'])
 def flight_info():
@@ -120,10 +125,14 @@ def flight_info():
     print(id_to)
 
 
+    print(departure)
+    print(parsed_trip['destination'])
+
 
     return render_template('flights.html', flights=parsed_trip, airport=airport_description, airport_goal=airport_goal_description,
                            latlong=[latitude, longitude], latlong_goal=[latitude_goal, longitude_goal], photos=airport_photos, photos_goal=airport_photos_goal,
-                           runways=airport_runways, runways_goal=airport_goal_runways, reviews_url_goal=reviews_url_goal, reviews_url=reviews_url, id_from=id_from, id_to=id_to, time_zone=time_zone)
+                           runways=airport_runways, runways_goal=airport_goal_runways, reviews_url_goal=reviews_url_goal, reviews_url=reviews_url,
+                           id_from=id_from, id_to=id_to, time_zone=time_zone, OR_IATA=departure, DEST_IATA=parsed_trip['destination'])
 
 
 @app.route('/departure_info')
