@@ -76,4 +76,6 @@ This project encompassed a full-stack web development process, involving both fr
 - https://chat.openai.com/share/0aabd2a5-f8ac-48da-89ba-102a893fbf17
 - prompts.txt file
 
+![image](https://github.com/vacoo0/ChepeastFlights/assets/101887413/b389b1b9-d3a1-4bad-9f0a-7b6cad1ae84c)
+![image](https://github.com/vacoo0/ChepeastFlights/assets/101887413/cff9aa1e-a994-4f4b-9cb9-508573f68de3)
 
