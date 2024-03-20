@@ -1,6 +1,6 @@
 
 # LLM challenge - chepeast airline tickets
-**Authors:** Michał Spinczyk, Piotr Pustelnik, Jan Mrożek
+**Author:**  Jan Mrożek
 
 This project is a web application built using the Flask framework in Python, designed to provide a comprehensive service for finding and displaying flight information, specifically utilizing the Ryanair API. The core functionality of the app includes searching for IATA codes, finding the cheapest flights, and gathering detailed information about airports, flights, and destinations. Below is a detailed description of the various components and features of this project:
 * Flask Web Framework:
